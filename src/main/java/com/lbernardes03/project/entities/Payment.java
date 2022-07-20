@@ -10,6 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity(name = "payments")
 public class Payment implements Serializable{
     @Id
@@ -17,6 +19,7 @@ public class Payment implements Serializable{
     private Long id;
     private Instant time;
     
+    @JsonIgnore
     @OneToOne
     @MapsId
     private Order order;
